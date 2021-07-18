@@ -1,0 +1,7 @@
+.product-view {
+
+}
+
+.product-view .title {
+	font-size: var(--lumo-font-size-l);
+}

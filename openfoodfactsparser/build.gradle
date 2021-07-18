@@ -1,0 +1,44 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.4'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'de.ssindelar'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+
+allprojects {
+	apply plugin: 'java'
+	
+	repositories {
+		mavenCentral()
+	}
+	
+	dependencies {
+		implementation 'com.google.guava:guava:29.0-jre'
+		
+		testImplementation('org.springframework.boot:spring-boot-starter-test') {
+			exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+		}
+	}
+	
+	test {
+		useJUnitPlatform()
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
+	implementation 'com.google.guava:guava:29.0-jre'
+	
+	implementation project(':shared')
+		
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+
